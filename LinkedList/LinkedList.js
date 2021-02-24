@@ -37,14 +37,22 @@ class LinkedList {
 
     */
     insert(index, value) {
-        if (index > this.length) {
-            throw new Error("Linked List out-of bound index.");
+        if (index >= this.length) {
+            return this.append(value);
         }
         const node = new Node(value);
+
         const appendTo = this.find(index - 1);
         const remainingList = appendTo.next;
         appendTo.next = node;
         node.next = remainingList;
+        return this;
+    }
+    remove(index) {
+        const findNode = this.find(index - 1);
+        const nodeToRemove = findNode.next;
+        findNode.next = nodeToRemove.next;
+        this.length--;
         return this;
     }
     find(index) {
@@ -73,5 +81,7 @@ list.append(5);
 list.prepend(2);
 list.prepend(1);
 list.insert(2, 4);
+list.insert(7, 99);
+list.remove(3)
 console.log(list.print());
 //console.log(list.length);
