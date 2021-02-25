@@ -2,8 +2,8 @@
 
 ## Data structures 
 
-1. - [x] LinkedList
-
+1. - [x] Linked List Construction
+2. - [x] DoublyLinked List Construction
 
 
 
@@ -24,5 +24,4 @@
 11. - [ ] Find Three Largest Numbers
 
 12. - [ ] Depth-first Search
-13. - [ ] Linked List Construction
-14. - [ ] Find Closest Value In BST
+13. - [ ] Find Closest Value In BST
