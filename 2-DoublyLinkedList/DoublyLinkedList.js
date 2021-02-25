@@ -2,28 +2,41 @@ class Node {
     constructor(value) {
         this.value = value;
         this.next = null;
+        this.prev = null;
     }
 }
-class LinkedList {
-    constructor(value) {
-        this.head = new Node(value);
-        this.tail = this.head;
-        this.length = 1;
+class DoublyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
     prepend(value) {
-        const node = new Node(value);
-        node.next = this.head;
-        this.head = node;
-        this.length++;
+        // 1 -> 2 -> 3
+        const newNode = new Node(value);
+        if (this.empty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            node.prev = this.tail;
+            this.tail = newNode;
+        }
         return this;
     }
+    empty() {
+        return this.length === 0;
+    }
     append(value) {
-        const node = {
-            value: value,
-            next: null,
-        };
-        this.tail.next = node;
-        this.tail = node;
+        const newNode = new Node(value);
+        if (this.empty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
         this.length++;
         return this;
     }
@@ -58,7 +71,7 @@ class LinkedList {
     find(index) {
         let current = this.head;
         let counter = 0;
-        if (this.length != counter) {
+        while (index != counter) {
             current = current.next;
             counter++;
         }
@@ -75,13 +88,13 @@ class LinkedList {
     }
 }
 
-const list = new LinkedList(10);
-list.append(5);
-
-list.prepend(2);
-list.prepend(1);
-list.insert(2, 4);
-list.insert(7, 99);
-list.remove(3)
-console.log(list.print());
-//console.log(list.length);
+const list = new DoublyLinkedList();
+list.append(99);
+ list.append(100);
+//list.append(16);
+/*list.prepend(1);
+list.insert(2, 99);
+list.insert(20, 88);
+list.remove(2)
+list.remove(2) */
+console.log(list);
