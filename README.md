@@ -11,17 +11,17 @@
 
 ## Easy
 
-1. - [x] Two number sum
-2. - [x] Branch Sums
-3. - [x] Nth Fibonacci
-4. - [x] Product sum
-5. - [x] Bubble sort
-6. - [ ] Insertion sort
-7. - [ ] Selection sort
-8. - [ ] Palindrome Check
-9. - [ ] Caesar Cipher Encryptor
-10. - [x] Binary Search
-11. - [ ] Find Three Largest Numbers
+1. - [] Two number sum
+2. - [] Branch Sums
+3. - [] Nth Fibonacci
+4. - [] Product sum
+5. - [] Bubble sort
+6. - [] Insertion sort
+7. - [] Selection sort
+8. - [] Palindrome Check
+9. - [] Caesar Cipher Encryptor
+10. - [] Binary Search
+11. - [] Find Three Largest Numbers
 
-12. - [ ] Depth-first Search
-13. - [ ] Find Closest Value In BST
+12. - [] Depth-first Search
+13. - [] Find Closest Value In BST
