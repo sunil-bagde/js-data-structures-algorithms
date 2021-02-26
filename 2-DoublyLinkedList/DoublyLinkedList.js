@@ -2,7 +2,7 @@ class Node {
     constructor(value) {
         this.value = value;
         this.next = null;
-        this.prev = null;
+        this.previous = null;
     }
 }
 class DoublyLinkedList {
@@ -19,7 +19,7 @@ class DoublyLinkedList {
             this.tail = newNode;
         } else {
             this.tail.next = newNode;
-            node.prev = this.tail;
+            node.previous = this.tail;
             this.tail = newNode;
         }
         return this;
@@ -33,8 +33,9 @@ class DoublyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
+
+            newNode.previous = this.tail;
             this.tail.next = newNode;
-            newNode.prev = this.tail;
             this.tail = newNode;
         }
         this.length++;
@@ -44,7 +45,7 @@ class DoublyLinkedList {
      param1 index
      param2 value
 
-     find the index i want to insert -1 
+     find the index i want to insert -1
      then node i found that append new node
      new node next add remaining list
 
@@ -67,6 +68,27 @@ class DoublyLinkedList {
         findNode.next = nodeToRemove.next;
         this.length--;
         return this;
+    }
+    shift() {
+
+    }
+    pop() {
+      if(!this.head) {
+          return undefined;
+      }
+      const poppedNode = this.tail;
+      if(this.length == 1) { // this.head === this.tail
+           this.head = null;
+           this.tail = null;
+      } else {
+      // if more than one nodes in linked list
+       this.tail = poppedNode.previous;
+       this.tail.next = null;
+       poppedNode.previous = null
+
+      }
+      this.length--;
+      return poppedNode;
     }
     find(index) {
         let current = this.head;
