@@ -2,8 +2,10 @@
 
 ## Data structures 
 
-1. -[x] Linked List Construction
-2. -[x] DoublyLinked List Construction
+### Constructions
+
+1. -[x] Linked List 
+2. -[x] DoublyLinked List  
 
 
 
