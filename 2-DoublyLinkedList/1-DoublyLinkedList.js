@@ -27,16 +27,20 @@ class DoublyLinkedList {
     empty() {
         return this.length === 0;
     }
+    /*
+     Unshift
+    Add node at beginning at
+    of the LinkedList
+     */
     append(value) {
         const newNode = new Node(value);
-        if (this.empty()) {
+        if (this.length == 0) {
             this.head = newNode;
             this.tail = newNode;
         } else {
-
-            newNode.previous = this.tail;
-            this.tail.next = newNode;
-            this.tail = newNode;
+            this.head.previous = this.head;
+            newNode.next = this.head;
+            this.head = newNode;
         }
         this.length++;
         return this;
@@ -69,26 +73,67 @@ class DoublyLinkedList {
         this.length--;
         return this;
     }
-    shift() {
 
-    }
     pop() {
-      if(!this.head) {
-          return undefined;
-      }
-      const poppedNode = this.tail;
-      if(this.length == 1) { // this.head === this.tail
-           this.head = null;
-           this.tail = null;
-      } else {
-      // if more than one nodes in linked list
-       this.tail = poppedNode.previous;
-       this.tail.next = null;
-       poppedNode.previous = null
+        if (!this.head) {
+            return undefined;
+        }
+        const poppedNode = this.tail;
+        if (this.length == 1) {
+            // this.head === this.tail
+            this.head = null;
+            this.tail = null;
+        } else {
+            // if more than one nodes in linked list
+            this.tail = poppedNode.previous;
+            this.tail.next = null;
+            poppedNode.previous = null;
+        }
+        this.length--;
+        return poppedNode;
+    }
+    get(index) { 
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+        let count = 0;
+        console.log(count);
+        let current = this.head;
+        if (index <=  (this.length / 2)) {
+            while (count !== index) {
+                current = current.next;
+                count++;
+            }
 
-      }
-      this.length--;
-      return poppedNode;
+            return  current;
+        } else {
+        console.log("2");
+            count = this.length - 1;
+            current = this.tail;
+            while (count !== index) {
+                current = current.previous;
+                count--;
+            }
+              return current;
+        }
+        return undefined
+      
+    }
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+        const oldHead = this.head;
+        if (this.head == this.tail) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head.previous = null;
+            oldHead.previous = null;
+        }
+
+        this.length--;
+        return this;
     }
     find(index) {
         let current = this.head;
@@ -111,12 +156,11 @@ class DoublyLinkedList {
 }
 
 const list = new DoublyLinkedList();
+ 
 list.append(99);
- list.append(100);
-//list.append(16);
-/*list.prepend(1);
-list.insert(2, 99);
-list.insert(20, 88);
-list.remove(2)
-list.remove(2) */
+list.append(100);
+list.append(101);
+list.append(1102);
 console.log(list);
+
+ 
